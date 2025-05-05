@@ -1,24 +1,7 @@
-#include "graphics_loader.hpp"
-#include <fstream>
-#include <iostream>
-#include <cstdint>
 
 // Define the VGA screen buffer location
 #define VGA_BUFFER (unsigned char*)0xA0000  // VGA Graphics Memory starts here for mode 0x13 (320x200)
 
-#pragma pack(push, 1)
-struct BMPHeader {
-    uint16_t type;          // 'BM' in little endian (0x4D42)
-    uint32_t size;          // File size
-    uint16_t reserved1;     // Reserved
-    uint16_t reserved2;     // Reserved
-    uint32_t offset;        // Offset to pixel data
-};
-
-struct DIBHeader {
-    uint32_t size;          // DIB header size
-    int32_t width;          // Width of the image
-    int32_t height;         // Height of the image
     uint16_t planes;        // Color planes
     uint16_t bpp;           // Bits per pixel (24 for true color)
     uint32_t compression;   // Compression type
@@ -30,7 +13,7 @@ struct DIBHeader {
 };
 #pragma pack(pop)
 
-void load_graphics(const char* file_name) {
+
     // Open the BMP file
     std::ifstream file(file_name, std::ios::binary);
     if (!file.is_open()) {
