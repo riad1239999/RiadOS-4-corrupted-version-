@@ -3,8 +3,8 @@ AS        = nasm
 CC        = i686-elf-g++
 LD        = i686-elf-ld
 GRUBMKRESCUE = grub-mkrescue
-ISO_DIR   = isodir
-BUILD_DIR = build
+
+
 
 # === Flags ===
 CFLAGS    = -std=c++17 -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
@@ -26,8 +26,7 @@ CPP_OBJ   = $(addprefix $(BUILD_DIR)/, $(CPP_SRC:.cpp=.o))
 OBJ       = $(ASM_OBJ) $(CPP_OBJ)
 
 # === Output ===
-KERNEL_BIN = $(BUILD_DIR)/kernel.bin
-ISO_IMAGE  = os.iso
+
 
 # === Targets ===
 all: $(ISO_IMAGE)
@@ -57,9 +56,6 @@ $(ISO_IMAGE): $(KERNEL_BIN)
 	echo '  boot' >> $(ISO_DIR)/boot/grub/grub.cfg
 	echo '}' >> $(ISO_DIR)/boot/grub/grub.cfg
 	$(GRUBMKRESCUE) -o $(ISO_IMAGE) $(ISO_DIR)
-
-clean:
-	rm -rf $(BUILD_DIR) $(ISO_DIR) $(ISO_IMAGE)
 
 run: all
 	qemu-system-i386 -cdrom $(ISO_IMAGE)
