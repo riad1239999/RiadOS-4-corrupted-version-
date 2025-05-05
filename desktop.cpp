@@ -1,13 +1,12 @@
 #include "desktop.hpp"
 #include "filesystem.hpp"      // For file system logic
-#include "gui.hpp"             // GUI rendering helpers
+       // GUI rendering helpers
 
 // Define the app icons for the desktop
 AppIcon desktopApps[] = {
     {"File Manager", 50, 50, open_file_manager},
     {"Create Text File", 50, 100, open_text_file_creator},
-    {"Test Program", 200, 50, open_exe_file},
-    {"Read Me", 200, 100, open_txt_file},
+ 
 };
 
 // Function to create the desktop and add app icons
@@ -32,14 +31,7 @@ void draw_desktop() {
     }
 }
 
-// Function to handle mouse click and launch the corresponding app
-void handle_desktop_click(int mouseX, int mouseY) {
-    for (auto& app : desktopApps) {
-        // Check if the mouse click is within the bounds of the app icon
-        if (is_mouse_within(mouseX, mouseY, app.x, app.y, 120, 40)) {
-            app.action();  // Run the associated app
-        }
-    }
+
 }
 
 // Function to open the file manager app
@@ -57,11 +49,8 @@ bool open_text_file_creator() {
 // Function to open an EXE file (simulate running it)
 bool open_exe_file() {
     run_file("Test Program");  // Simulate running the EXE file
-    return true;
+ 
 }
 
 // Function to open a TXT file (display its content)
-bool open_txt_file() {
-    run_file("Read Me");  // Open the TXT file
-    return true;
-}
+
