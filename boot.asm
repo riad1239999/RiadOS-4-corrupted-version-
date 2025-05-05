@@ -35,7 +35,7 @@ start:
     jmp 0x0000:0x1000
 
 ; Data
-boot_msg db "Booting into RiadOS4...", 0
+boot_msg db "idrjfpois zujng intoAHHHHHHHHHH4..igotcorruptedeeeeeeeeeeeeedeergrannys.", 0
 
 ; Padding to 510 bytes
 times 510 - ($ - $$) db 0
