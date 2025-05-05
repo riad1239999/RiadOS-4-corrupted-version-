@@ -2,17 +2,6 @@
 #include "filesystem.hpp"      // For file system logic
        // GUI rendering helpers
 
-// Define the app icons for the desktop
-AppIcon desktopApps[] = {
-    {"File Manager", 50, 50, open_file_manager},
-    {"Create Text File", 50, 100, open_text_file_creator},
- 
-};
-
-// Function to create the desktop and add app icons
-void create_desktop() {
-    // Add example files to memory for the desktop
-    create_file("Test Program", "This is a test EXE program.", "exe");
     create_file("Read Me", "This is a text file. Welcome to the OS!", "txt");
 
     // Optionally, you can add more files here for testing
