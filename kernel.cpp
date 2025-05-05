@@ -9,7 +9,7 @@
 #include "interrupts.hpp"
 #include "io.hpp"
 #include "keyboard.hpp"
-#include "timer.hpp"
+
 #include "vga.hpp"
 
 // Initialize kernel: Setup initial system state
@@ -25,14 +25,7 @@ void init_kernel() {
     
     // Main loop for handling user input and drawing GUI
     while (true) {
-        // Handle user input: keyboard, mouse, etc.
-        handle_input();
-        
-        // Render the desktop and other GUI elements
-        draw_desktop();
-    }
-}
-
+   
 // Function to handle system input events (keyboard, mouse, etc.)
 void handle_input() {
     // Handle keyboard input (example: key press events)
